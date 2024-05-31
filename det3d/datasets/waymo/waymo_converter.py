@@ -52,8 +52,10 @@ def convert(idx):
 
 def main():
     print("Number of files {}".format(len(fnames)))
+    num_cores = os.cpu_count()
+    print("number of cores available ", num_cores)
 
-    with Pool(128) as p: # change according to your cpu
+    with Pool(2*num_cores) as p: # change according to your cpu
         r = list(tqdm.tqdm(p.imap(convert, range(len(fnames))), total=len(fnames)))
 
 

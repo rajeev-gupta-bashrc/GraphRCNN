@@ -3,7 +3,7 @@ import warnings
 import numpy as np
 from functools import reduce
 
-import pycocotools.mask as maskUtils
+# import pycocotools.mask as maskUtils
 
 from pathlib import Path
 from copy import deepcopy

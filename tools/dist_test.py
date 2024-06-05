@@ -110,10 +110,10 @@ def main():
         batch_size=cfg.data.samples_per_gpu if not args.speed_test else 1,
         workers_per_gpu=cfg.data.workers_per_gpu,
         dist=distributed,
-        shuffle=False,
+        shuffle=True,
     )
 
-    checkpoint = load_checkpoint(model, args.checkpoint, map_location="cpu")
+    # checkpoint = load_checkpoint(model, args.checkpoint, map_location="cpu")
 
     # put model on gpus
     if distributed:

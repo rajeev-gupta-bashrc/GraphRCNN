@@ -115,7 +115,7 @@ def create_groundtruth_database(
 
         num_obj = gt_boxes.shape[0]
         if num_obj == 0:
-            continue 
+            continue
         point_indices = box_np_ops.points_in_rbbox(points, gt_boxes)
         for i in range(num_obj):
             if (used_classes is None) or names[i] in used_classes:
@@ -156,6 +156,7 @@ def create_groundtruth_database(
                     all_db_infos[names[i]] = [db_info]
 
     print("dataset length: ", len(dataset))
+    # all_db_infos is a dictionary {'object': dict of db_info}
     for k, v in all_db_infos.items():
         print(f"load {len(v)} {k} database infos")
 

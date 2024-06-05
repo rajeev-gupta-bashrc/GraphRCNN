@@ -130,7 +130,7 @@ test_cfg = dict(
 # dataset settings
 dataset_type = "WaymoDataset"
 nsweeps = 1
-data_root = "/data/waymo"
+data_root = "/media/rajeev-gupta/Ventoy/waymo_data/data/waymo"
 client_cfg = dict(
     name="HardDiskBackend",
 )
@@ -138,7 +138,7 @@ client_cfg = dict(
 db_sampler = dict(
     type="GT-AUG",
     enable=False,
-    db_info_path="/data/waymo/dbinfos_train_1sweeps_withvelo.pkl",
+    db_info_path=data_root + "/dbinfos_train_1sweeps_withvelo.pkl",
     client_cfg=client_cfg,
     sample_groups=[
         dict(VEHICLE=15),
@@ -188,8 +188,8 @@ test_pipeline = [
     dict(type="Reformat"),
 ]
 
-train_anno = "/data/waymo/infos_train_01sweeps_filter_zero_gt.pkl"
-val_anno = "/data/waymo/infos_val_01sweeps_filter_zero_gt.pkl"
+train_anno = data_root + "/infos_train_01sweeps_filter_zero_gt.pkl"
+val_anno = data_root + "/infos_val_01sweeps_filter_zero_gt.pkl"
 test_anno = None
 
 data = dict(

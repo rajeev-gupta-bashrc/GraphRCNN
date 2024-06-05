@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -x
-NGPUS=$1
+NGPUS=1
 
 CFG_NAME=waymo_centerpoint_voxelnet_3x
 

@@ -1,0 +1,1402 @@
+rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ conda activate p10
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ conda list tensorflow
+# packages in environment at /home/rajeev-gupta/miniconda3/envs/p10:
+#
+# Name                    Version                   Build  Channel
+tensorflow                2.11.0                   pypi_0    pypi
+tensorflow-addons         0.23.0                   pypi_0    pypi
+tensorflow-datasets       4.9.0                    pypi_0    pypi
+tensorflow-estimator      2.11.0                   pypi_0    pypi
+tensorflow-graphics       2021.12.3                pypi_0    pypi
+tensorflow-io-gcs-filesystem 0.37.0                   pypi_0    pypi
+tensorflow-metadata       1.13.0                   pypi_0    pypi
+tensorflow-probability    0.19.0                   pypi_0    pypi
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ conda env list
+# conda environments:
+#
+base                     /home/rajeev-gupta/miniconda3
+graphrcnn                /home/rajeev-gupta/miniconda3/envs/graphrcnn
+new_graphrcnn            /home/rajeev-gupta/miniconda3/envs/new_graphrcnn
+p10                   *  /home/rajeev-gupta/miniconda3/envs/p10
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ git clone https://github.com/tensorflow/tensorflow.git
+Cloning into 'tensorflow'...
+remote: Enumerating objects: 1792187, done.
+remote: Counting objects: 100% (280/280), done.
+remote: Compressing objects: 100% (151/151), done.
+^Zceiving objects:  11% (201956/1792187), 97.07 MiB | 2.20 MiB/s 
+[1]+  Stopped                 git clone https://github.com/tensorflow/tensorflow.git
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ ls
+Desktop  Documents  Downloads  google-cloud-sdk  miniconda3  Music  my_ws  Pictures  Public  sensyn_ws  snap  Templates  tensorflow  Videos
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ rm -rf tensorflow/
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ ls
+Desktop  Documents  Downloads  google-cloud-sdk  miniconda3  Music  my_ws  Pictures  Public  sensyn_ws  snap  Templates  Videos
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ cd /media/rajeev-gupta/Ventoy/
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy$ ls
+'$RECYCLE.BIN'   Arduino     cuda-repo-ubuntu2004-12-5-local_12.5.0-555.42.02-1_amd64.deb   Documents   kitti   Pictures   ros1   ros_archives  'System Volume Information'   Videos
+ agribot_ws      ardupilot   Desktop                                                        Downloads   Music   Public     ros2   snap           Templates                    waymo_data
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy$ git clone https://github.com/tensorflow/tensorflow.git
+Cloning into 'tensorflow'...
+remote: Enumerating objects: 1792187, done.
+remote: Counting objects: 100% (280/280), done.
+remote: Compressing objects: 100% (151/151), done.
+remote: Total 1792187 (delta 154), reused 218 (delta 129), pack-reused 1791907
+Receiving objects: 100% (1792187/1792187), 997.06 MiB | 6.84 MiB/s, done.
+Resolving deltas: 100% (1465701/1465701), done.
+Updating files: 100% (31989/31989), done.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy$ cd tensorflow/
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ ls
+arm_compiler.BUILD  ci                  CODEOWNERS     configure.py     LICENSE       RELEASE.md                  requirements_lock_3_12.txt  tensorflow   WORKSPACE
+AUTHORS             CITATION.cff        configure      CONTRIBUTING.md  models.BUILD  requirements_lock_3_10.txt  requirements_lock_3_9.txt   third_party
+BUILD               CODE_OF_CONDUCT.md  configure.cmd  ISSUES.md        README.md     requirements_lock_3_11.txt  SECURITY.md                 tools
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git branch
+* master
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git checkout 
+Display all 2142 possibilities? (y or n)
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git checkout 
+Your branch is up to date with 'origin/master'.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git checkout r2.11
+Updating files: 100% (24100/24100), done.
+Branch 'r2.11' set up to track remote branch 'r2.11' from 'origin'.
+Switched to a new branch 'r2.11'
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ gedit configure.py 
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ conda remove tensorflow
+
+PackagesNotFoundError: The following packages are missing from the target environment:
+  - tensorflow
+
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall waymo-open-dataset-2-11-0
+WARNING: Skipping waymo-open-dataset-2-11-0 as it is not installed.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall waymo-open-dataset-tf-2-11-0
+Found existing installation: waymo-open-dataset-tf-2-11-0 1.6.1
+Uninstalling waymo-open-dataset-tf-2-11-0-1.6.1:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/dataset_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/label_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/ops/metrics_ops.so
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/ops/py_metrics_ops.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/config_util_py.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/detection_metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/keypoint_metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/matcher.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/motion_metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/tracking_metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/metrics/python/wod_detection_evaluator.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/box_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/breakdown_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/camera_segmentation_metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/camera_segmentation_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/camera_segmentation_submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/compressed_lidar_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/conversion_config_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/keypoint_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/keypoints_metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/keypoints_submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/map_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/motion_metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/motion_submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/occupancy_flow_metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/occupancy_flow_submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/scenario_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/segmentation_metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/segmentation_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/segmentation_submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/sim_agents_metrics_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/sim_agents_submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/submission_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/protos/vector_pb2.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/box_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/camera_segmentation_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/compression/delta_encoder.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/compression/pca_codec.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/compression/tiling.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/frame_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/geometry_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/keypoint_data.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/keypoint_draw.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/occupancy_flow_data.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/occupancy_flow_grids.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/occupancy_flow_metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/occupancy_flow_renderer.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/occupancy_flow_vis.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/plot_maps.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/range_image_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/converters.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/submission_specs.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/test_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/testdata/test_config.textproto
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/testdata/test_config_dependent_timesteps.textproto
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/testdata/test_submission.binproto
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/sim_agents/visualizations.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/trajectory_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/transform_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/utils/womd_lidar_utils.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/v2/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/camera/libcamera_model.so
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/camera/ops/camera_model_ops.so
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/camera/ops/py_camera_model_ops.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/camera_segmentation/camera_segmentation_metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/challenge_config.textproto
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/estimators.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/interaction_features.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/map_metric_features.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/metric_features.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/metrics.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset/wdl_limited/sim_agents_metrics/trajectory_features.py
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/waymo_open_dataset_tf_2_11_0-1.6.1.dist-info/*
+Proceed (Y/n)? y
+  Successfully uninstalled waymo-open-dataset-tf-2-11-0-1.6.1
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ conda list tensorflow
+# packages in environment at /home/rajeev-gupta/miniconda3/envs/p10:
+#
+# Name                    Version                   Build  Channel
+tensorflow                2.11.0                   pypi_0    pypi
+tensorflow-addons         0.23.0                   pypi_0    pypi
+tensorflow-datasets       4.9.0                    pypi_0    pypi
+tensorflow-estimator      2.11.0                   pypi_0    pypi
+tensorflow-graphics       2021.12.3                pypi_0    pypi
+tensorflow-io-gcs-filesystem 0.37.0                   pypi_0    pypi
+tensorflow-metadata       1.13.0                   pypi_0    pypi
+tensorflow-probability    0.19.0                   pypi_0    pypi
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow
+Found existing installation: tensorflow 2.11.0
+Uninstalling tensorflow-2.11.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/estimator_ckpt_converter
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/import_pb_to_tensorboard
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/saved_model_cli
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/tensorboard
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/tf_upgrade_v2
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/tflite_convert
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/toco
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/toco_from_protos
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow-2.11.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-2.11.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ conda list tensorflow
+# packages in environment at /home/rajeev-gupta/miniconda3/envs/p10:
+#
+# Name                    Version                   Build  Channel
+tensorflow-addons         0.23.0                   pypi_0    pypi
+tensorflow-datasets       4.9.0                    pypi_0    pypi
+tensorflow-estimator      2.11.0                   pypi_0    pypi
+tensorflow-graphics       2021.12.3                pypi_0    pypi
+tensorflow-io-gcs-filesystem 0.37.0                   pypi_0    pypi
+tensorflow-metadata       1.13.0                   pypi_0    pypi
+tensorflow-probability    0.19.0                   pypi_0    pypi
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ conda list tensorflow-*
+# packages in environment at /home/rajeev-gupta/miniconda3/envs/p10:
+#
+# Name                    Version                   Build  Channel
+tensorflow-addons         0.23.0                   pypi_0    pypi
+tensorflow-datasets       4.9.0                    pypi_0    pypi
+tensorflow-estimator      2.11.0                   pypi_0    pypi
+tensorflow-graphics       2021.12.3                pypi_0    pypi
+tensorflow-io-gcs-filesystem 0.37.0                   pypi_0    pypi
+tensorflow-metadata       1.13.0                   pypi_0    pypi
+tensorflow-probability    0.19.0                   pypi_0    pypi
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-*
+ERROR: Invalid requirement: 'tensorflow-*'
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-addons
+Found existing installation: tensorflow-addons 0.23.0
+Uninstalling tensorflow-addons-0.23.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/_foo.cpython-310-x86_64-linux-gnu.so
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_addons-0.23.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_addons/*
+Proceed (Y/n)? y
+  Successfully uninstalled tensorflow-addons-0.23.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-datasets
+Found existing installation: tensorflow-datasets 4.9.0
+Uninstalling tensorflow-datasets-4.9.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/bin/tfds
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_datasets-4.9.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_datasets/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-datasets-4.9.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-estimators
+WARNING: Skipping tensorflow-estimators as it is not installed.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-estimator
+Found existing installation: tensorflow-estimator 2.11.0
+Uninstalling tensorflow-estimator-2.11.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_estimator-2.11.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_estimator/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-estimator-2.11.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-graphics
+Found existing installation: tensorflow-graphics 2021.12.3
+Uninstalling tensorflow-graphics-2021.12.3:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_graphics-2021.12.3.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_graphics/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-graphics-2021.12.3
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-io-gcs-filesystems
+WARNING: Skipping tensorflow-io-gcs-filesystems as it is not installed.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-io-gcs-filesystem
+Found existing installation: tensorflow-io-gcs-filesystem 0.37.0
+Uninstalling tensorflow-io-gcs-filesystem-0.37.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_io_gcs_filesystem-0.37.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_io_gcs_filesystem/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-io-gcs-filesystem-0.37.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-probability
+Found existing installation: tensorflow-probability 0.19.0
+Uninstalling tensorflow-probability-0.19.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_probability-0.19.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_probability/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-probability-0.19.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ conda list tensorflow-*
+# packages in environment at /home/rajeev-gupta/miniconda3/envs/p10:
+#
+# Name                    Version                   Build  Channel
+tensorflow-metadata       1.13.0                   pypi_0    pypi
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ pip uninstall tensorflow-metadata
+Found existing installation: tensorflow-metadata 1.13.0
+Uninstalling tensorflow-metadata-1.13.0:
+  Would remove:
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_metadata-1.13.0.dist-info/*
+    /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages/tensorflow_metadata/*
+Proceed (Y/n)? 
+  Successfully uninstalled tensorflow-metadata-1.13.0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ conda list tensorflow
+# packages in environment at /home/rajeev-gupta/miniconda3/envs/p10:
+#
+# Name                    Version                   Build  Channel
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ ./configure
+WARNING: current bazel installation is not a release version.
+Please specify the location of python. [Default is /home/rajeev-gupta/miniconda3/envs/p10/bin/python3]:                             
+
+
+Found possible Python library paths:
+  /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages
+Please input the desired Python library path to use.  Default is [/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages]
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
+No ROCm support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
+CUDA support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: y
+TensorRT support will be enabled for TensorFlow.
+
+Could not find any NvInferVersion.h matching version '' in any subdirectory:
+        ''
+        'include'
+        'include/cuda'
+        'include/*-linux-gnu'
+        'extras/CUPTI/include'
+        'include/cuda/CUPTI'
+        'local/cuda/extras/CUPTI/include'
+of:
+        '/lib'
+        '/lib/i386-linux-gnu'
+        '/lib/x86_64-linux-gnu'
+        '/lib32'
+        '/usr'
+        '/usr/lib/x86_64-linux-gnu/libfakeroot'
+        '/usr/local/cuda'
+        '/usr/local/cuda/targets/x86_64-linux/lib'
+
+Asking for detailed CUDA configuration...
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 11]: 12.5
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 2]: 8.6.7
+
+
+Please specify the TensorRT version you want to use. [Leave empty to default to TensorRT 6]: 10.0
+
+
+Please specify the locally installed NCCL version you want to use. [Leave empty to use http://github.com/nvidia/nccl]: 
+
+
+Please specify the comma-separated list of base paths to look for CUDA libraries and headers. [Leave empty to use the default]: 
+
+
+Could not find any cudnn.h, cudnn_version.h matching version '8.6.7' in any subdirectory:
+        ''
+        'include'
+        'include/cuda'
+        'include/*-linux-gnu'
+        'extras/CUPTI/include'
+        'include/cuda/CUPTI'
+        'local/cuda/extras/CUPTI/include'
+of:
+        '/lib'
+        '/lib/i386-linux-gnu'
+        '/lib/x86_64-linux-gnu'
+        '/lib32'
+        '/usr'
+        '/usr/lib/x86_64-linux-gnu/libfakeroot'
+        '/usr/local/cuda'
+        '/usr/local/cuda-12.5'
+        '/usr/local/cuda/targets/x86_64-linux/lib'
+
+Asking for detailed CUDA configuration...
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 11]: 12.5
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 2]: 8.9.7
+
+
+Please specify the TensorRT version you want to use. [Leave empty to default to TensorRT 6]: 10.0
+
+
+Please specify the locally installed NCCL version you want to use. [Leave empty to use http://github.com/nvidia/nccl]: 
+
+
+Please specify the comma-separated list of base paths to look for CUDA libraries and headers. [Leave empty to use the default]: 
+
+
+Could not find any cudnn.h, cudnn_version.h matching version '8.9.7' in any subdirectory:
+        ''
+        'include'
+        'include/cuda'
+        'include/*-linux-gnu'
+        'extras/CUPTI/include'
+        'include/cuda/CUPTI'
+        'local/cuda/extras/CUPTI/include'
+of:
+        '/lib'
+        '/lib/i386-linux-gnu'
+        '/lib/x86_64-linux-gnu'
+        '/lib32'
+        '/usr'
+        '/usr/lib/x86_64-linux-gnu/libfakeroot'
+        '/usr/local/cuda'
+        '/usr/local/cuda-12.5'
+        '/usr/local/cuda/targets/x86_64-linux/lib'
+
+Asking for detailed CUDA configuration...
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 11]: 12.5
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 2]: 9.1.1.17-1
+
+
+Please specify the TensorRT version you want to use. [Leave empty to default to TensorRT 6]: 10.0.1
+
+
+Please specify the locally installed NCCL version you want to use. [Leave empty to use http://github.com/nvidia/nccl]: 
+
+
+Please specify the comma-separated list of base paths to look for CUDA libraries and headers. [Leave empty to use the default]: 
+
+
+Could not find any cudnn.h, cudnn_version.h matching version '9.1.1.17-1' in any subdirectory:
+        ''
+        'include'
+        'include/cuda'
+        'include/*-linux-gnu'
+        'extras/CUPTI/include'
+        'include/cuda/CUPTI'
+        'local/cuda/extras/CUPTI/include'
+of:
+        '/lib'
+        '/lib/i386-linux-gnu'
+        '/lib/x86_64-linux-gnu'
+        '/lib32'
+        '/usr'
+        '/usr/lib/x86_64-linux-gnu/libfakeroot'
+        '/usr/local/cuda'
+        '/usr/local/cuda-12.5'
+        '/usr/local/cuda/targets/x86_64-linux/lib'
+
+Asking for detailed CUDA configuration...
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 11]: 12
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 2]: 9
+
+
+Please specify the TensorRT version you want to use. [Leave empty to default to TensorRT 6]: 10
+
+
+Please specify the locally installed NCCL version you want to use. [Leave empty to use http://github.com/nvidia/nccl]: 
+
+
+Please specify the comma-separated list of base paths to look for CUDA libraries and headers. [Leave empty to use the default]: 
+
+
+Could not find any NvInferVersion.h matching version '10' in any subdirectory:
+        ''
+        'include'
+        'include/cuda'
+        'include/*-linux-gnu'
+        'extras/CUPTI/include'
+        'include/cuda/CUPTI'
+        'local/cuda/extras/CUPTI/include'
+of:
+        '/lib'
+        '/lib/i386-linux-gnu'
+        '/lib/x86_64-linux-gnu'
+        '/lib32'
+        '/usr'
+        '/usr/lib/x86_64-linux-gnu/libfakeroot'
+        '/usr/local/cuda'
+        '/usr/local/cuda/targets/x86_64-linux/lib'
+
+Asking for detailed CUDA configuration...
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 11]: 12.5
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 2]: 9
+
+
+Please specify the TensorRT version you want to use. [Leave empty to default to TensorRT 6]: ^Z
+[2]+  Stopped                 ./configure
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ ./configure
+WARNING: current bazel installation is not a release version.
+Please specify the location of python. [Default is /home/rajeev-gupta/miniconda3/envs/p10/bin/python3]: 
+
+
+Found possible Python library paths:
+  /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages
+Please input the desired Python library path to use.  Default is [/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages]
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
+No ROCm support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
+CUDA support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: n
+No TensorRT support will be enabled for TensorFlow.
+
+Found CUDA 12.5 in:
+    /usr/local/cuda-12.5/targets/x86_64-linux/lib
+    /usr/local/cuda-12.5/targets/x86_64-linux/include
+Found cuDNN 9 in:
+    /usr/lib/x86_64-linux-gnu
+    /usr/include
+
+
+Please specify a list of comma-separated CUDA compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
+Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 8.9
+
+
+Do you want to use clang as CUDA compiler? [y/N]: y
+Clang will be used as CUDA compiler.
+
+Do you wish to download a fresh release of clang? (Experimental) [y/N]: n
+Clang will not be downloaded.
+
+Please specify which clang should be used as device and host compiler. [Default is ]: 17
+
+
+Invalid clang path: 17 cannot be found.
+Please specify which clang should be used as device and host compiler. [Default is ]: /usr/lib/llvm-17/bin/clang                                                            
+
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -Wno-sign-compare]: 
+
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
+Not configuring the WORKSPACE for Android builds.
+
+Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
+	--config=mkl         	# Build with MKL support.
+	--config=mkl_aarch64 	# Build with oneDNN and Compute Library for the Arm Architecture (ACL).
+	--config=monolithic  	# Config for mostly static monolithic build.
+	--config=numa        	# Build with NUMA support.
+	--config=dynamic_kernels	# (Experimental) Build kernels into separate shared objects.
+	--config=v1          	# Build with TensorFlow 1 API instead of TF 2 API.
+Preconfigured Bazel build configs to DISABLE default on features:
+	--config=nogcp       	# Disable GCP support.
+	--config=nonccl      	# Disable NVIDIA NCCL support.
+Configuration finished
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+ERROR: The project you're trying to build requires Bazel 5.3.0 (specified in /media/rajeev-gupta/Ventoy/tensorflow/.bazelversion), but it wasn't found in /usr/bin.
+
+You can install the required Bazel version via apt:
+  sudo apt update && sudo apt install bazel-5.3.0
+
+If this doesn't work, check Bazel's installation instructions for help:
+  https://bazel.build/install/ubuntu
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel --version
+ERROR: The project you're trying to build requires Bazel 5.3.0 (specified in /media/rajeev-gupta/Ventoy/tensorflow/.bazelversion), but it wasn't found in /usr/bin.
+
+You can install the required Bazel version via apt:
+  sudo apt update && sudo apt install bazel-5.3.0
+
+If this doesn't work, check Bazel's installation instructions for help:
+  https://bazel.build/install/ubuntu
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel --version
+ERROR: The project you're trying to build requires Bazel 5.3.0 (specified in /media/rajeev-gupta/Ventoy/tensorflow/.bazelversion), but it wasn't found in /usr/bin.
+
+You can install the required Bazel version via apt:
+  sudo apt update && sudo apt install bazel-5.3.0
+
+If this doesn't work, check Bazel's installation instructions for help:
+  https://bazel.build/install/ubuntu
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git branch
+  master
+* r2.11
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git fetch origin 
+remote: Enumerating objects: 249, done.
+remote: Counting objects: 100% (236/236), done.
+remote: Compressing objects: 100% (34/34), done.
+remote: Total 249 (delta 209), reused 219 (delta 202), pack-reused 13
+Receiving objects: 100% (249/249), 171.30 KiB | 855.00 KiB/s, done.
+Resolving deltas: 100% (210/210), completed with 134 local objects.
+From https://github.com/tensorflow/tensorflow
+ + ea2933a4123...7de996ae14d exported_pr_631530059 -> origin/exported_pr_631530059  (forced update)
+ + d3f9be3b381...8e265ceb91f exported_pr_633162324 -> origin/exported_pr_633162324  (forced update)
+ + 0335f45ba1e...f1a16a291a2 exported_pr_633610440 -> origin/exported_pr_633610440  (forced update)
+ + 604c41e8b5f...65010f0cb8e exported_pr_636343221 -> origin/exported_pr_636343221  (forced update)
+ + 540d4cb00bd...74c92d7c1a4 exported_pr_638744733 -> origin/exported_pr_638744733  (forced update)
+ + c702aef1f70...90b86759168 exported_pr_639182406 -> origin/exported_pr_639182406  (forced update)
+ + b61591c64d7...f0c85420b75 exported_pr_639947472 -> origin/exported_pr_639947472  (forced update)
+ + ec015e3b9ee...a800ed08919 exported_pr_640140990 -> origin/exported_pr_640140990  (forced update)
+ + a8e92c17a49...5205af8e226 exported_pr_640188525 -> origin/exported_pr_640188525  (forced update)
+ * [new branch]              exported_pr_640219654 -> origin/exported_pr_640219654
+   d6f85ba22b6..9dab91d727c  master                -> origin/master
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git branch 
+  master
+* r2.11
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git fetch origin r2.11
+From https://github.com/tensorflow/tensorflow
+ * branch                    r2.11      -> FETCH_HEAD
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ git branch 
+  master
+* r2.11
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ ./configure
+You have bazel 5.3.0 installed.
+Please specify the location of python. [Default is /home/rajeev-gupta/miniconda3/envs/p10/bin/python3]: 
+
+
+Found possible Python library paths:
+  /home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages
+Please input the desired Python library path to use.  Default is [/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages]
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
+No ROCm support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
+CUDA support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: n
+No TensorRT support will be enabled for TensorFlow.
+
+Found CUDA 12.5 in:
+    /usr/local/cuda-12.5/targets/x86_64-linux/lib
+    /usr/local/cuda-12.5/targets/x86_64-linux/include
+Found cuDNN 9 in:
+    /usr/lib/x86_64-linux-gnu
+    /usr/include
+
+
+Please specify a list of comma-separated CUDA compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
+Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 8.9
+
+
+Do you want to use clang as CUDA compiler? [y/N]: y
+Clang will be used as CUDA compiler.
+
+Do you wish to download a fresh release of clang? (Experimental) [y/N]: n
+Clang will not be downloaded.
+
+Please specify which clang should be used as device and host compiler. [Default is ]: /usr/lib/llvm-17/bin/clang 
+
+
+Invalid clang path: /usr/lib/llvm-17/bin/clang  cannot be found.
+Please specify which clang should be used as device and host compiler. [Default is ]: /usr/lib/llvm-17/bin/clang 
+
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -Wno-sign-compare]: 
+
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
+Not configuring the WORKSPACE for Android builds.
+
+Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
+	--config=mkl         	# Build with MKL support.
+	--config=mkl_aarch64 	# Build with oneDNN and Compute Library for the Arm Architecture (ACL).
+	--config=monolithic  	# Config for mostly static monolithic build.
+	--config=numa        	# Build with NUMA support.
+	--config=dynamic_kernels	# (Experimental) Build kernels into separate shared objects.
+	--config=v1          	# Build with TensorFlow 1 API instead of TF 2 API.
+Preconfigured Bazel build configs to DISABLE default on features:
+	--config=nogcp       	# Disable GCP support.
+	--config=nonccl      	# Disable NVIDIA NCCL support.
+Configuration finished
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$  bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/targets/x86_64-linux/libcupti.so.12 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+[sudo] password for rajeev-gupta: 
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$  bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/targets/x86_64-linux/libcupti.so /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ln: failed to create symbolic link '/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5': File exists
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ln: failed to create symbolic link '/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5': File exists
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+rm: cannot remove '/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5': Permission denied
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo !!
+sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5 bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+ln: unrecognized option '--repo_env=WHEEL_NAME=tensorflow'
+Try 'ln --help' for more information.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$  bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+rm: cannot remove '/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5': Permission denied
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo !!
+sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$  bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+rm: cannot remove '/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5': Permission denied
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo !!
+sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ readelf -d /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so | grep SONAME
+ 0x000000000000000e (SONAME)             Library soname: [libcupti.so.12]
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/lib64/libcupti.so.12 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo apt-get install --reinstall cuda-command-line-tools-12-5
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 7 not upgraded.
+Need to get 0 B/2,546 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 file:/var/cuda-repo-ubuntu2004-12-5-local  cuda-command-line-tools-12-5 12.5.0-1 [2,546 B]
+(Reading database ... 204253 files and directories currently installed.)
+Preparing to unpack .../cuda-command-line-tools-12-5_12.5.0-1_amd64.deb ...
+Unpacking cuda-command-line-tools-12-5 (12.5.0-1) over (12.5.0-1) ...
+Setting up cuda-command-line-tools-12-5 (12.5.0-1) ...
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ echo $PATH
+/home/rajeev-gupta/miniconda3/envs/p10/bin:/home/rajeev-gupta/miniconda3/condabin:/home/rajeev-gupta/google-cloud-sdk/bin:/home/rajeev-gupta/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ nvcc --version
+
+Command 'nvcc' not found, but can be installed with:
+
+sudo apt install nvidia-cuda-toolkit
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ set_cuda12 
+CUDA 12.5 environment variables set.
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Apr_17_19:19:55_PDT_2024
+Cuda compilation tools, release 12.5, V12.5.40
+Build cuda_12.5.r12.5/compiler.34177558_0
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo find /usr/local/ -name "libcupti.so*"
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.2024.2.0
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ 
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ readelf -d /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so | grep SONAME
+ 0x000000000000000e (SONAME)             Library soname: [libcupti.so.12]
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/lib64/libcupti.so.2024.2.0 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo find /usr/local/ -name "libcupti.so*"
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.2024.2.0
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12
+/usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo chmod 755 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo chmod 755 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo ln -s /usr/local/cuda-12.5/lib64/libcupti.so.12 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo chmod 755 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo chmod 755 /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+None of the libraries match their SONAME: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ sudo rm -rf /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --local_ram_resources=4096
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=203
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --define framework_shared_object=true --define tsl_protobuf_header_only=true --define=use_fast_cpp_protos=true --define=allow_oversize_protos=true --spawn_strategy=standalone -c opt --announce_rc --define=grpc_no_ares=true --noincompatible_remove_legacy_whole_archive --enable_platform_specific_config --define=with_xla_support=true --config=short_logs --config=v2 --define=no_aws_support=true --define=no_hdfs_support=true --experimental_cc_shared_library --experimental_link_static_libraries_once=false
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.tf_configure.bazelrc:
+  'build' options: --action_env PYTHON_BIN_PATH=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env PYTHON_LIB_PATH=/home/rajeev-gupta/miniconda3/envs/p10/lib/python3.10/site-packages --python_path=/home/rajeev-gupta/miniconda3/envs/p10/bin/python3 --action_env CUDA_TOOLKIT_PATH=/usr/local/cuda-12.5 --action_env TF_CUDA_COMPUTE_CAPABILITIES=8.9 --config=cuda_clang --action_env CLANG_CUDA_COMPILER_PATH=/usr/lib/llvm-17/bin/clang --config=cuda_clang
+INFO: Reading rc options for 'build' from /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc:
+  'build' options: --deleted_packages=tensorflow/compiler/mlir/tfrt,tensorflow/compiler/mlir/tfrt/benchmarks,tensorflow/compiler/mlir/tfrt/jit/python_binding,tensorflow/compiler/mlir/tfrt/jit/transforms,tensorflow/compiler/mlir/tfrt/python_tests,tensorflow/compiler/mlir/tfrt/tests,tensorflow/compiler/mlir/tfrt/tests/ir,tensorflow/compiler/mlir/tfrt/tests/analysis,tensorflow/compiler/mlir/tfrt/tests/jit,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_tfrt,tensorflow/compiler/mlir/tfrt/tests/lhlo_to_jitrt,tensorflow/compiler/mlir/tfrt/tests/tf_to_corert,tensorflow/compiler/mlir/tfrt/tests/tf_to_tfrt_data,tensorflow/compiler/mlir/tfrt/tests/saved_model,tensorflow/compiler/mlir/tfrt/transforms/lhlo_gpu_to_tfrt_gpu,tensorflow/core/runtime_fallback,tensorflow/core/runtime_fallback/conversion,tensorflow/core/runtime_fallback/kernel,tensorflow/core/runtime_fallback/opdefs,tensorflow/core/runtime_fallback/runtime,tensorflow/core/runtime_fallback/util,tensorflow/core/tfrt/common,tensorflow/core/tfrt/eager,tensorflow/core/tfrt/eager/backends/cpu,tensorflow/core/tfrt/eager/backends/gpu,tensorflow/core/tfrt/eager/core_runtime,tensorflow/core/tfrt/eager/cpp_tests/core_runtime,tensorflow/core/tfrt/gpu,tensorflow/core/tfrt/run_handler_thread_pool,tensorflow/core/tfrt/runtime,tensorflow/core/tfrt/saved_model,tensorflow/core/tfrt/graph_executor,tensorflow/core/tfrt/saved_model/tests,tensorflow/core/tfrt/tpu,tensorflow/core/tfrt/utils
+INFO: Found applicable config definition build:short_logs in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:v2 in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=tf_api_version=2 --action_env=TF2_BEHAVIOR=1
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda_clang in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --config=cuda --repo_env TF_CUDA_CLANG=1 --@local_config_cuda//:cuda_compiler=clang
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:linux in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --host_copt=-w --copt=-Wno-all --copt=-Wno-extra --copt=-Wno-deprecated --copt=-Wno-deprecated-declarations --copt=-Wno-ignored-attributes --copt=-Wno-unknown-warning --copt=-Wno-array-parameter --copt=-Wno-stringop-overflow --copt=-Wno-array-bounds --copt=-Wunused-result --copt=-Werror=unused-result --define=PREFIX=/usr --define=LIBDIR=$(PREFIX)/lib --define=INCLUDEDIR=$(PREFIX)/include --define=PROTOBUF_INCLUDE_PATH=$(PREFIX)/include --cxxopt=-std=c++17 --host_cxxopt=-std=c++17 --config=dynamic_kernels --distinct_host_configuration=false --experimental_guard_against_concurrent_changes
+INFO: Found applicable config definition build:dynamic_kernels in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --define=dynamic_loaded_kernels=true --copt=-DAUTOLOAD_DYNAMIC_KERNELS
+INFO: Repository local_config_cuda instantiated at:
+  /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: in <toplevel>
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:944:19: in workspace
+  /media/rajeev-gupta/Ventoy/tensorflow/tensorflow/workspace2.bzl:94:19: in _tf_toolchains
+Repository rule cuda_configure defined at:
+  /media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl:1453:33: in <toplevel>
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/tensorflow/runtime/archive/4ce3e4da2e21ae4dfcee9366415e55f408c884ec.tar.gz failed: class java.io.FileNotFoundException GET returned 404 Not Found
+ERROR: An error occurred during the fetch of repository 'local_config_cuda':
+   Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+ERROR: /media/rajeev-gupta/Ventoy/tensorflow/WORKSPACE:15:14: fetching cuda_configure rule //external:local_config_cuda: Traceback (most recent call last):
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1406, column 38, in _cuda_autoconf_impl
+		_create_local_cuda_repository(repository_ctx)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 1081, column 27, in _create_local_cuda_repository
+		cuda_libs = _find_libs(repository_ctx, check_cuda_libs_script, cuda_config)
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 611, column 21, in _find_libs
+		_check_cuda_libs(repository_ctx, check_cuda_libs_script, check_cuda_libs_params.values())
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/gpus/cuda_configure.bzl", line 506, column 28, in _check_cuda_libs
+		checked_paths = execute(repository_ctx, [python_bin, "-c", cmd]).stdout.splitlines()
+	File "/media/rajeev-gupta/Ventoy/tensorflow/third_party/remote_config/common.bzl", line 230, column 13, in execute
+		fail(
+Error in fail: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+INFO: Found applicable config definition build:cuda in file /media/rajeev-gupta/Ventoy/tensorflow/.bazelrc: --repo_env TF_NEED_CUDA=1 --crosstool_top=@local_config_cuda//crosstool:toolchain --@local_config_cuda//:enable_cuda
+WARNING: The following configs were expanded more than once: [cuda_clang, cuda]. For repeatable flags, repeats are counted twice and may lead to unexpected behavior.
+ERROR: @local_config_cuda//:enable_cuda :: Error loading option @local_config_cuda//:enable_cuda: Repository command failed
+No library found under: /usr/local/cuda-12.5/targets/x86_64-linux/lib/libcupti.so.12.5
+
+(p10) rajeev-gupta@rajeevgupta-Nitro-AN515-58:/media/rajeev-gupta/Ventoy/tensorflow$ 
+
+

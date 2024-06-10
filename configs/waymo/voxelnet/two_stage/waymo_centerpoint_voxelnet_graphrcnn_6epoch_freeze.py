@@ -130,7 +130,7 @@ test_cfg = dict(
 # dataset settings
 dataset_type = "WaymoDataset"
 nsweeps = 1
-data_root = "/media/rajeev-gupta/Ventoy/waymo_data/data/waymo"
+data_root = "/home/rajeev-gupta/sensyn_ws/src/GraphRCNN/Ventoy/waymo_data/data/waymo"
 client_cfg = dict(
     name="HardDiskBackend",
 )

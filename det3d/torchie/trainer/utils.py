@@ -57,6 +57,8 @@ def obj_from_dict(info, parent=None, default_args=None):
         parent (:class:`modules`):
         default_args (dict, optional):
     """
+    print('********************** here is the info ', info)
+    print(" and type ", info['type'])
     assert isinstance(info, dict) and "type" in info
     assert isinstance(default_args, dict) or default_args is None
     args = info.copy()

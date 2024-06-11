@@ -315,6 +315,6 @@ def train_detector(model, dataset, cfg, distributed=False, validate=False, logge
     if cfg.resume_from:
         trainer.resume(cfg.resume_from)
     elif cfg.load_from:
-        trainer.load_checkpoint(cfg.load_from)
-
-    trainer.run(data_loaders, cfg.workflow, cfg.total_epochs, local_rank=cfg.local_rank)
+        trainer.load_checkpoint(cfg.load_from, map_location='cuda:0')
+    else:
+        trainer.run(data_loaders, cfg.workflow, cfg.total_epochs, local_rank=cfg.local_rank)

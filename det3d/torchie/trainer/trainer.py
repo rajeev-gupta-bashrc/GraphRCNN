@@ -532,7 +532,8 @@ class Trainer(object):
                         "mode in workflow must be a str or "
                         "callable function not '{}'".format(type(mode))
                     )
-
+                print('***************** self.epoch ', self.epoch)
+                print('***************** epochs ', epochs)
                 for _ in range(epochs):
                     if mode == "train" and self.epoch >= max_epochs:
                         return

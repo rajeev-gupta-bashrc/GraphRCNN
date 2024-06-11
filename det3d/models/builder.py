@@ -15,9 +15,11 @@ from .registry import (
 
 def build(cfg, registry, default_args=None):
     if isinstance(cfg, list):
+        print('***************************model is sequential***************************')
         modules = [build_from_cfg(cfg_, registry, default_args) for cfg_ in cfg]
         return nn.Sequential(*modules)
     else:
+        print('***************************model is build_from_cfg***************************')
         return build_from_cfg(cfg, registry, default_args)
 
 def build_second_stage_module(cfg):

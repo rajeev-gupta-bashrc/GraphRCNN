@@ -17,7 +17,7 @@ target_assigner = dict(
 # model settings
 model = dict(
     type="VoxelNet",
-    pretrained=None,
+    pretrained='/home/rajeev-gupta/sensyn_ws/src/GraphRCNN/work_dirs/waymo_centerpoint_voxelnet_3x/latest.pth',
     reader=dict(
         type="DynamicVoxelEncoder",
         pc_range=[-75.2, -75.2, -2, 75.2, 75.2, 4],
@@ -143,8 +143,9 @@ val_anno = data_root + "/infos_val_01sweeps_filter_zero_gt.pkl"
 test_anno = None
 
 data = dict(
-    samples_per_gpu=16,
-    workers_per_gpu=4,
+    # samples_per_gpu=16,             #batch size
+    samples_per_gpu=1,             #batch size
+    workers_per_gpu=1,
     train=dict(
         type=dataset_type,
         root_path=data_root,
@@ -199,10 +200,11 @@ log_config = dict(
 # yapf:enable
 # runtime settings
 total_epochs = 36
-device_ids = range(4)
+# device_ids = range(4)
+device_ids = [0]
 dist_params = dict(backend="nccl", init_method="env://")
 log_level = "INFO"
 work_dir = './work_dirs/{}/'.format(__file__[__file__.rfind('/') + 1:-3])
-load_from = None 
-resume_from = None  
-workflow = [('train', 1)]
+load_from = '/home/rajeev-gupta/sensyn_ws/src/GraphRCNN/work_dirs/waymo_centerpoint_voxelnet_3x/latest.pth' 
+resume_from = False  
+workflow = [('train', 2)]           #[(mode, epochs)]

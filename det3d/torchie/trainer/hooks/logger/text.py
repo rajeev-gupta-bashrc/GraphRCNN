@@ -70,8 +70,11 @@ class TextLoggerHook(LoggerHook):
 
         if trainer.world_size > 1:
             class_names = trainer.model.module.bbox_head.class_names
+            print('ooooooooooooooooooooooooo> ', class_names, trainer.world_size)
         else:
             class_names = trainer.model.bbox_head.class_names
+            # class_names = trainer.model.CLASSES
+            print('ooooooooooooooooooooooooo> ', class_names, trainer.world_size)
 
         for idx, task_class_names in enumerate(class_names):
             log_items = [f"task : {task_class_names}"]

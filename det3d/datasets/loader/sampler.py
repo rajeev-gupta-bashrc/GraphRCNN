@@ -123,6 +123,7 @@ class GroupSampler(Sampler):
             indice = np.concatenate([indice, indice[:num_extra]])
             indices.append(indice)
         indices = np.concatenate(indices)
+        print(indices)
         indices = [
             indices[i * self.samples_per_gpu : (i + 1) * self.samples_per_gpu]
             for i in np.random.permutation(range(len(indices) // self.samples_per_gpu))

@@ -59,7 +59,10 @@ class PointCloudDataset(Dataset):
         raise NotImplementedError
 
     def __len__(self):
-        raise NotImplementedError
+        try:
+            return len(self)
+        except:
+            raise NotImplementedError
 
     def get_sensor_data(self, query):
         """Dataset must provide a unified function to get data.

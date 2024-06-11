@@ -1,0 +1,277 @@
+Drive250 path added to CONDA_ENVS_DIRS
+rajeev-gupta@rajeevgupta-Nitro-AN515-58:~$ cd sensyn_ws/src/GraphRCNN/
+rajeev-gupta@rajeevgupta-Nitro-AN515-58:~/sensyn_ws/src/GraphRCNN$ act_cuda11
+CUDA 11.1 environment variables set.
+rajeev-gupta@rajeevgupta-Nitro-AN515-58:~/sensyn_ws/src/GraphRCNN$ conda activate new_graphrcnn
+(/media/rajeev-gupta/Drive250/conda_envs/new_graphrcnn) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~/sensyn_ws/src/GraphRCNN$ nvidia-smi
+Tue Jun 11 23:17:17 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 555.42.02              Driver Version: 555.42.02      CUDA Version: 12.5     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4050 ...    Off |   00000000:01:00.0 Off |                  N/A |
+| N/A   49C    P0             16W /   80W |      24MiB /   6141MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A      1608      G   /usr/lib/xorg/Xorg                              4MiB |
+|    0   N/A  N/A      2211      G   /usr/lib/xorg/Xorg                              4MiB |
++-----------------------------------------------------------------------------------------+
+(/media/rajeev-gupta/Drive250/conda_envs/new_graphrcnn) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~/sensyn_ws/src/GraphRCNN$ bash dist_trainval.sh 
++ NGPUS=1
++ CFG_NAME=waymo_centerpoint_voxelnet_3x
++ CFG_NAME=waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze
++ python ./tools/dist_test.py configs/waymo/voxelnet/two_stage/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze.py --work_dir work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze --checkpoint work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze/latest.pth
+2024-06-11 23:17:37,823 - INFO - Distributed testing: False
+2024-06-11 23:17:37,823 - INFO - torch.backends.cudnn.benchmark: False
+***************************model is build_from_cfg***************************
+***************************model is build_from_cfg***************************
+***************************model is build_from_cfg***************************
+***************************model is build_from_cfg***************************
+***************************model is build_from_cfg***************************
+2024-06-11 23:17:37,920 - INFO - Finish RPN Initialization
+***************************model is build_from_cfg***************************
+2024-06-11 23:17:37,920 - INFO - num_classes: [3]
+Use HM Bias:  -2.19
+2024-06-11 23:17:37,927 - INFO - Finish CenterHead Initialization
+load_state_dict
+The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: single_det.backbone.conv_input.0.weight, single_det.backbone.conv_input.1.weight, ................
+
+missing keys in source state_dict: backbone.conv1.1.conv1.bias, neck.blocks.1.2.bias, backbone.conv2.4.bn2.weight, ................
+
+init weight from /home/rajeev-gupta/sensyn_ws/src/GraphRCNN/work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze/latest.pth
+Freeze First Stage Network
+***************************model is build_from_cfg***************************
+Use Val Set
+Using 1 sweeps
+Using 196 Frames
+2024-06-11 23:17:43,706 - INFO - work dir: work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze
+[                                                  ] 0/196, elapsed: 0s, ETA:
+dataloader type:  <class 'torch.utils.data.dataloader.DataLoader'>
+[ 25   0 137  73  90  88  51  75   4 130  80 153  28 170  34  79   7  16
+ 143 158  47  35  67 190  99 192   6 107  30  38 144 105 183   5  65  49
+ 162 113  37   1  12 168 187  89  44  86  39 104 145  64  17 181 135 175
+  13  22  87  21  71 169  84 132 184 136 120  83 109  58 138  24  78 124
+ 115  43  46  85 131  57  41 134  15  45  42 150 157  81 112  98 126 159
+ 176  70 186  59 160  26 123 114 116  36   3   8   2  74  60 189 141 163
+ 194  19 154 156 101 167 166  29 108  69 110  55  92  53  40 125 140 191
+ 178 148  52 182  48 193   9 111  54 149 100 171 122  32  61 121  11 173
+  72 185 188 164 103 152 129  14 177  63  93  82  27 117  50 102  76 195
+ 128  97 155  66 151  96 180 106  23 165 174  68 146 119  10  33 179  18
+  31 127 142 118 133  94  56 147  20  62  95 139 161  77 172  91]
+
+/media/rajeev-gupta/Drive250/conda_envs/new_graphrcnn/lib/python3.7/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180589158/work/aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[                                                  ] 1/196, 0.6 task/s, elapsed: 2s, ETA:   351s
+[                                                  ] 2/196, 1.0 task/s, elapsed: 2s, ETA:   191s
+[                                                  ] 3/196, 1.4 task/s, elapsed: 2s, ETA:   137s
+[>                                                 ] 4/196, 1.7 task/s, elapsed: 2s, ETA:   111s
+[>                                                 ] 5/196, 2.0 task/s, elapsed: 2s, ETA:    95s
+[>                                                 ] 6/196, 2.3 task/s, elapsed: 3s, ETA:    84s
+[>                                                 ] 7/196, 2.5 task/s, elapsed: 3s, ETA:    76s
+[>>                                                ] 8/196, 2.7 task/s, elapsed: 3s, ETA:    70s
+[>>                                                ] 9/196, 2.9 task/s, elapsed: 3s, ETA:    65s
+[>>                                                ] 10/196, 3.0 task/s, elapsed: 3s, ETA:    62s
+[>>                                                ] 11/196, 3.2 task/s, elapsed: 3s, ETA:    58s
+[>>>                                               ] 12/196, 3.3 task/s, elapsed: 4s, ETA:    56s
+[>>>                                               ] 13/196, 3.4 task/s, elapsed: 4s, ETA:    54s
+[>>>                                               ] 14/196, 3.5 task/s, elapsed: 4s, ETA:    52s
+[>>>                                               ] 15/196, 3.6 task/s, elapsed: 4s, ETA:    50s
+[>>>>                                              ] 16/196, 3.7 task/s, elapsed: 4s, ETA:    49s
+[>>>>                                              ] 17/196, 3.8 task/s, elapsed: 4s, ETA:    47s
+[>>>>                                              ] 18/196, 3.9 task/s, elapsed: 5s, ETA:    46s
+[>>>>                                              ] 19/196, 3.9 task/s, elapsed: 5s, ETA:    45s
+[>>>>>                                             ] 20/196, 4.0 task/s, elapsed: 5s, ETA:    44s
+[>>>>>                                             ] 21/196, 4.1 task/s, elapsed: 5s, ETA:    43s
+[>>>>>                                             ] 22/196, 4.1 task/s, elapsed: 5s, ETA:    42s
+[>>>>>                                             ] 23/196, 4.2 task/s, elapsed: 5s, ETA:    41s
+[>>>>>>                                            ] 24/196, 4.2 task/s, elapsed: 6s, ETA:    41s
+[>>>>>>                                            ] 25/196, 4.3 task/s, elapsed: 6s, ETA:    40s
+[>>>>>>                                            ] 26/196, 4.3 task/s, elapsed: 6s, ETA:    39s
+[>>>>>>                                            ] 27/196, 4.4 task/s, elapsed: 6s, ETA:    39s
+[>>>>>>>                                           ] 28/196, 4.4 task/s, elapsed: 6s, ETA:    38s
+[>>>>>>>                                           ] 29/196, 4.5 task/s, elapsed: 6s, ETA:    37s
+[>>>>>>>                                           ] 30/196, 4.5 task/s, elapsed: 7s, ETA:    37s
+[>>>>>>>                                           ] 31/196, 4.5 task/s, elapsed: 7s, ETA:    36s
+[>>>>>>>>                                          ] 32/196, 4.6 task/s, elapsed: 7s, ETA:    36s
+[>>>>>>>>                                          ] 33/196, 4.6 task/s, elapsed: 7s, ETA:    35s
+[>>>>>>>>                                          ] 34/196, 4.6 task/s, elapsed: 7s, ETA:    35s
+[>>>>>>>>                                          ] 35/196, 4.7 task/s, elapsed: 7s, ETA:    34s
+[>>>>>>>>>                                         ] 36/196, 4.7 task/s, elapsed: 8s, ETA:    34s
+[>>>>>>>>>                                         ] 37/196, 4.7 task/s, elapsed: 8s, ETA:    34s
+[>>>>>>>>>                                         ] 38/196, 4.8 task/s, elapsed: 8s, ETA:    33s
+[>>>>>>>>>                                         ] 39/196, 4.8 task/s, elapsed: 8s, ETA:    33s
+[>>>>>>>>>>                                        ] 40/196, 4.8 task/s, elapsed: 8s, ETA:    32s
+[>>>>>>>>>>                                        ] 41/196, 4.8 task/s, elapsed: 8s, ETA:    32s
+[>>>>>>>>>>                                        ] 42/196, 4.9 task/s, elapsed: 9s, ETA:    32s
+[>>>>>>>>>>                                        ] 43/196, 4.9 task/s, elapsed: 9s, ETA:    31s
+[>>>>>>>>>>>                                       ] 44/196, 4.9 task/s, elapsed: 9s, ETA:    31s
+[>>>>>>>>>>>                                       ] 45/196, 4.9 task/s, elapsed: 9s, ETA:    31s
+[>>>>>>>>>>>                                       ] 46/196, 4.9 task/s, elapsed: 9s, ETA:    30s
+[>>>>>>>>>>>                                       ] 47/196, 5.0 task/s, elapsed: 9s, ETA:    30s
+[>>>>>>>>>>>>                                      ] 48/196, 5.0 task/s, elapsed: 10s, ETA:    30s
+[>>>>>>>>>>>>                                      ] 49/196, 5.0 task/s, elapsed: 10s, ETA:    29s
+[>>>>>>>>>>>>                                      ] 50/196, 5.0 task/s, elapsed: 10s, ETA:    29s
+[>>>>>>>>>>>>>                                     ] 51/196, 5.0 task/s, elapsed: 10s, ETA:    29s
+[>>>>>>>>>>>>>                                     ] 52/196, 5.0 task/s, elapsed: 10s, ETA:    29s
+[>>>>>>>>>>>>>                                     ] 53/196, 5.1 task/s, elapsed: 10s, ETA:    28s
+[>>>>>>>>>>>>>                                     ] 54/196, 5.1 task/s, elapsed: 11s, ETA:    28s
+[>>>>>>>>>>>>>>                                    ] 55/196, 5.1 task/s, elapsed: 11s, ETA:    28s
+[>>>>>>>>>>>>>>                                    ] 56/196, 5.1 task/s, elapsed: 11s, ETA:    27s
+[>>>>>>>>>>>>>>                                    ] 57/196, 5.1 task/s, elapsed: 11s, ETA:    27s
+[>>>>>>>>>>>>>>                                    ] 58/196, 5.1 task/s, elapsed: 11s, ETA:    27s
+[>>>>>>>>>>>>>>>                                   ] 59/196, 5.1 task/s, elapsed: 11s, ETA:    27s
+[>>>>>>>>>>>>>>>                                   ] 60/196, 5.1 task/s, elapsed: 12s, ETA:    26s
+[>>>>>>>>>>>>>>>                                   ] 61/196, 5.2 task/s, elapsed: 12s, ETA:    26s
+[>>>>>>>>>>>>>>>                                   ] 62/196, 5.2 task/s, elapsed: 12s, ETA:    26s
+[>>>>>>>>>>>>>>>>                                  ] 63/196, 5.2 task/s, elapsed: 12s, ETA:    26s
+[>>>>>>>>>>>>>>>>                                  ] 64/196, 5.2 task/s, elapsed: 12s, ETA:    25s
+[>>>>>>>>>>>>>>>>                                  ] 65/196, 5.2 task/s, elapsed: 12s, ETA:    25s
+[>>>>>>>>>>>>>>>>                                  ] 66/196, 5.2 task/s, elapsed: 13s, ETA:    25s
+[>>>>>>>>>>>>>>>>>                                 ] 67/196, 5.2 task/s, elapsed: 13s, ETA:    25s
+[>>>>>>>>>>>>>>>>>                                 ] 68/196, 5.2 task/s, elapsed: 13s, ETA:    24s
+[>>>>>>>>>>>>>>>>>                                 ] 69/196, 5.2 task/s, elapsed: 13s, ETA:    24s
+[>>>>>>>>>>>>>>>>>                                 ] 70/196, 5.3 task/s, elapsed: 13s, ETA:    24s
+[>>>>>>>>>>>>>>>>>>                                ] 71/196, 5.3 task/s, elapsed: 13s, ETA:    24s
+[>>>>>>>>>>>>>>>>>>                                ] 72/196, 5.3 task/s, elapsed: 14s, ETA:    24s
+[>>>>>>>>>>>>>>>>>>                                ] 73/196, 5.3 task/s, elapsed: 14s, ETA:    23s
+[>>>>>>>>>>>>>>>>>>                                ] 74/196, 5.3 task/s, elapsed: 14s, ETA:    23s
+[>>>>>>>>>>>>>>>>>>>                               ] 75/196, 5.3 task/s, elapsed: 14s, ETA:    23s
+[>>>>>>>>>>>>>>>>>>>                               ] 76/196, 5.3 task/s, elapsed: 14s, ETA:    23s
+[>>>>>>>>>>>>>>>>>>>                               ] 77/196, 5.3 task/s, elapsed: 14s, ETA:    22s
+[>>>>>>>>>>>>>>>>>>>                               ] 78/196, 5.3 task/s, elapsed: 15s, ETA:    22s
+[>>>>>>>>>>>>>>>>>>>>                              ] 79/196, 5.3 task/s, elapsed: 15s, ETA:    22s
+[>>>>>>>>>>>>>>>>>>>>                              ] 80/196, 5.3 task/s, elapsed: 15s, ETA:    22s
+[>>>>>>>>>>>>>>>>>>>>                              ] 81/196, 5.4 task/s, elapsed: 15s, ETA:    21s
+[>>>>>>>>>>>>>>>>>>>>                              ] 82/196, 5.4 task/s, elapsed: 15s, ETA:    21s
+[>>>>>>>>>>>>>>>>>>>>>                             ] 83/196, 5.4 task/s, elapsed: 15s, ETA:    21s
+[>>>>>>>>>>>>>>>>>>>>>                             ] 84/196, 5.4 task/s, elapsed: 16s, ETA:    21s
+[>>>>>>>>>>>>>>>>>>>>>                             ] 85/196, 5.4 task/s, elapsed: 16s, ETA:    21s
+[>>>>>>>>>>>>>>>>>>>>>                             ] 86/196, 5.4 task/s, elapsed: 16s, ETA:    20s
+[>>>>>>>>>>>>>>>>>>>>>>                            ] 87/196, 5.4 task/s, elapsed: 16s, ETA:    20s
+[>>>>>>>>>>>>>>>>>>>>>>                            ] 88/196, 5.4 task/s, elapsed: 16s, ETA:    20s
+[>>>>>>>>>>>>>>>>>>>>>>                            ] 89/196, 5.4 task/s, elapsed: 16s, ETA:    20s
+[>>>>>>>>>>>>>>>>>>>>>>                            ] 90/196, 5.4 task/s, elapsed: 17s, ETA:    20s
+[>>>>>>>>>>>>>>>>>>>>>>>                           ] 91/196, 5.4 task/s, elapsed: 17s, ETA:    19s
+[>>>>>>>>>>>>>>>>>>>>>>>                           ] 92/196, 5.4 task/s, elapsed: 17s, ETA:    19s
+[>>>>>>>>>>>>>>>>>>>>>>>                           ] 93/196, 5.4 task/s, elapsed: 17s, ETA:    19s
+[>>>>>>>>>>>>>>>>>>>>>>>                           ] 94/196, 5.4 task/s, elapsed: 17s, ETA:    19s
+[>>>>>>>>>>>>>>>>>>>>>>>>                          ] 95/196, 5.4 task/s, elapsed: 17s, ETA:    19s
+[>>>>>>>>>>>>>>>>>>>>>>>>                          ] 96/196, 5.4 task/s, elapsed: 18s, ETA:    18s
+[>>>>>>>>>>>>>>>>>>>>>>>>                          ] 97/196, 5.5 task/s, elapsed: 18s, ETA:    18s
+[>>>>>>>>>>>>>>>>>>>>>>>>>                         ] 98/196, 5.5 task/s, elapsed: 18s, ETA:    18s
+[>>>>>>>>>>>>>>>>>>>>>>>>>                         ] 99/196, 5.5 task/s, elapsed: 18s, ETA:    18s
+[>>>>>>>>>>>>>>>>>>>>>>>>>                         ] 100/196, 5.5 task/s, elapsed: 18s, ETA:    18s
+[>>>>>>>>>>>>>>>>>>>>>>>>>                         ] 101/196, 5.5 task/s, elapsed: 18s, ETA:    17s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>                        ] 102/196, 5.5 task/s, elapsed: 19s, ETA:    17s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>                        ] 103/196, 5.5 task/s, elapsed: 19s, ETA:    17s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>                        ] 104/196, 5.5 task/s, elapsed: 19s, ETA:    17s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>                        ] 105/196, 5.5 task/s, elapsed: 19s, ETA:    17s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>                       ] 106/196, 5.5 task/s, elapsed: 19s, ETA:    16s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>                       ] 107/196, 5.5 task/s, elapsed: 19s, ETA:    16s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>                       ] 108/196, 5.5 task/s, elapsed: 20s, ETA:    16s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>                       ] 109/196, 5.5 task/s, elapsed: 20s, ETA:    16s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>                      ] 110/196, 5.5 task/s, elapsed: 20s, ETA:    16s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>                      ] 111/196, 5.5 task/s, elapsed: 20s, ETA:    15s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>                      ] 112/196, 5.5 task/s, elapsed: 20s, ETA:    15s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>                      ] 113/196, 5.5 task/s, elapsed: 20s, ETA:    15s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                     ] 114/196, 5.5 task/s, elapsed: 21s, ETA:    15s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                     ] 115/196, 5.5 task/s, elapsed: 21s, ETA:    15s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                     ] 116/196, 5.5 task/s, elapsed: 21s, ETA:    14s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                     ] 117/196, 5.5 task/s, elapsed: 21s, ETA:    14s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                    ] 118/196, 5.5 task/s, elapsed: 21s, ETA:    14s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                    ] 119/196, 5.6 task/s, elapsed: 21s, ETA:    14s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                    ] 120/196, 5.6 task/s, elapsed: 22s, ETA:    14s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                    ] 121/196, 5.6 task/s, elapsed: 22s, ETA:    13s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                   ] 122/196, 5.6 task/s, elapsed: 22s, ETA:    13s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                   ] 123/196, 5.6 task/s, elapsed: 22s, ETA:    13s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                   ] 124/196, 5.6 task/s, elapsed: 22s, ETA:    13s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                   ] 125/196, 5.6 task/s, elapsed: 22s, ETA:    13s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                  ] 126/196, 5.6 task/s, elapsed: 23s, ETA:    13s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                  ] 127/196, 5.6 task/s, elapsed: 23s, ETA:    12s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                  ] 128/196, 5.6 task/s, elapsed: 23s, ETA:    12s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                  ] 129/196, 5.6 task/s, elapsed: 23s, ETA:    12s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                 ] 130/196, 5.6 task/s, elapsed: 23s, ETA:    12s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                 ] 131/196, 5.6 task/s, elapsed: 23s, ETA:    12s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                 ] 132/196, 5.6 task/s, elapsed: 24s, ETA:    11s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                 ] 133/196, 5.6 task/s, elapsed: 24s, ETA:    11s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                ] 134/196, 5.6 task/s, elapsed: 24s, ETA:    11s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                ] 135/196, 5.6 task/s, elapsed: 24s, ETA:    11s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                ] 136/196, 5.6 task/s, elapsed: 24s, ETA:    11s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                ] 137/196, 5.6 task/s, elapsed: 24s, ETA:    11s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>               ] 138/196, 5.6 task/s, elapsed: 25s, ETA:    10s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>               ] 139/196, 5.6 task/s, elapsed: 25s, ETA:    10s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>               ] 140/196, 5.6 task/s, elapsed: 25s, ETA:    10s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>               ] 141/196, 5.6 task/s, elapsed: 25s, ETA:    10s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>              ] 142/196, 5.6 task/s, elapsed: 25s, ETA:    10s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>              ] 143/196, 5.6 task/s, elapsed: 25s, ETA:     9s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>              ] 144/196, 5.6 task/s, elapsed: 26s, ETA:     9s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>              ] 145/196, 5.6 task/s, elapsed: 26s, ETA:     9s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>             ] 146/196, 5.6 task/s, elapsed: 26s, ETA:     9s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>             ] 147/196, 5.6 task/s, elapsed: 26s, ETA:     9s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>             ] 148/196, 5.6 task/s, elapsed: 26s, ETA:     9s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            ] 149/196, 5.6 task/s, elapsed: 26s, ETA:     8s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            ] 150/196, 5.6 task/s, elapsed: 27s, ETA:     8s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            ] 151/196, 5.6 task/s, elapsed: 27s, ETA:     8s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            ] 152/196, 5.6 task/s, elapsed: 27s, ETA:     8s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>           ] 153/196, 5.7 task/s, elapsed: 27s, ETA:     8s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>           ] 154/196, 5.7 task/s, elapsed: 27s, ETA:     7s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>           ] 155/196, 5.7 task/s, elapsed: 27s, ETA:     7s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>           ] 156/196, 5.7 task/s, elapsed: 28s, ETA:     7s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>          ] 157/196, 5.7 task/s, elapsed: 28s, ETA:     7s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>          ] 158/196, 5.7 task/s, elapsed: 28s, ETA:     7s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>          ] 159/196, 5.7 task/s, elapsed: 28s, ETA:     7s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>          ] 160/196, 5.7 task/s, elapsed: 28s, ETA:     6s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>         ] 161/196, 5.7 task/s, elapsed: 28s, ETA:     6s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>         ] 162/196, 5.7 task/s, elapsed: 29s, ETA:     6s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>         ] 163/196, 5.7 task/s, elapsed: 29s, ETA:     6s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>         ] 164/196, 5.7 task/s, elapsed: 29s, ETA:     6s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        ] 165/196, 5.7 task/s, elapsed: 29s, ETA:     5s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        ] 166/196, 5.7 task/s, elapsed: 29s, ETA:     5s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        ] 167/196, 5.7 task/s, elapsed: 29s, ETA:     5s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        ] 168/196, 5.7 task/s, elapsed: 30s, ETA:     5s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>       ] 169/196, 5.7 task/s, elapsed: 30s, ETA:     5s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>       ] 170/196, 5.7 task/s, elapsed: 30s, ETA:     5s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>       ] 171/196, 5.7 task/s, elapsed: 30s, ETA:     4s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>       ] 172/196, 5.7 task/s, elapsed: 30s, ETA:     4s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      ] 173/196, 5.7 task/s, elapsed: 30s, ETA:     4s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      ] 174/196, 5.7 task/s, elapsed: 31s, ETA:     4s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      ] 175/196, 5.7 task/s, elapsed: 31s, ETA:     4s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      ] 176/196, 5.7 task/s, elapsed: 31s, ETA:     4s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     ] 177/196, 5.7 task/s, elapsed: 31s, ETA:     3s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     ] 178/196, 5.7 task/s, elapsed: 31s, ETA:     3s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     ] 179/196, 5.7 task/s, elapsed: 31s, ETA:     3s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     ] 180/196, 5.7 task/s, elapsed: 32s, ETA:     3s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    ] 181/196, 5.7 task/s, elapsed: 32s, ETA:     3s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    ] 182/196, 5.7 task/s, elapsed: 32s, ETA:     2s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    ] 183/196, 5.7 task/s, elapsed: 32s, ETA:     2s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    ] 184/196, 5.7 task/s, elapsed: 32s, ETA:     2s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 185/196, 5.7 task/s, elapsed: 32s, ETA:     2s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 186/196, 5.7 task/s, elapsed: 33s, ETA:     2s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 187/196, 5.7 task/s, elapsed: 33s, ETA:     2s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 188/196, 5.7 task/s, elapsed: 33s, ETA:     1s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 189/196, 5.7 task/s, elapsed: 33s, ETA:     1s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 190/196, 5.7 task/s, elapsed: 33s, ETA:     1s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 191/196, 5.7 task/s, elapsed: 33s, ETA:     1s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 192/196, 5.7 task/s, elapsed: 34s, ETA:     1s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 193/196, 5.7 task/s, elapsed: 34s, ETA:     1s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 194/196, 5.7 task/s, elapsed: 34s, ETA:     0s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 195/196, 5.7 task/s, elapsed: 34s, ETA:     0s
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 196/196, 5.7 task/s, elapsed: 34s, ETA:     0s
+ Total time per frame:  0.16580935624929574
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 196/196 [00:00<00:00, 445.50it/s]
+results saved to work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze/detection_pred.bin
+use waymo devkit tool for evaluation
+(/media/rajeev-gupta/Drive250/conda_envs/new_graphrcnn) rajeev-gupta@rajeevgupta-Nitro-AN515-58:~/sensyn_ws/src/GraphRCNN$ 
+
+

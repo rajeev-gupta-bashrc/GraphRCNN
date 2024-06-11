@@ -147,7 +147,7 @@ def main():
     time_start = 0 
     time_end = 0 
 
-    print(type(data_loader))
+    print('\ndataloader type: ', type(data_loader))
     
     for i, data_batch in enumerate(data_loader):
         if i == start:

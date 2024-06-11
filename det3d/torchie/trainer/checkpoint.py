@@ -65,6 +65,7 @@ def find_all_spconv_keys(model: nn.Module, prefix="") -> Set[str]:
 
 
 def load_state_dict(module, state_dict, strict=False, logger=None):
+    print("load_state_dict")
     """Load state_dict into a module
     """
     unexpected_keys = []
@@ -214,7 +215,7 @@ def load_checkpoint(model, filename, map_location='cpu', strict=False, logger=No
         load_state_dict(model.module, state_dict, strict, logger)
     else:
         load_state_dict(model, state_dict, strict, logger)
-    print('model loaded with state dict, here are the keys() ', state_dict.keys())
+    # print('model loaded with state dict, here are the keys() ', state_dict.keys())
     return checkpoint
 
 

@@ -33,6 +33,7 @@ import pickle
 import time 
 
 def convert_state_dict(module, state_dict, strict=False, logger=None):
+    print("convert_state_dict")
     """Load state_dict into a module
     """
     unexpected_keys = []

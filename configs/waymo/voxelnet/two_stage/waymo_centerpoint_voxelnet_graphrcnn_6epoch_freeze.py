@@ -19,7 +19,7 @@ model = dict(
     type='TwoStageDetector',
     first_stage_cfg=dict(
         type="VoxelNet",
-        pretrained='work_dirs/waymo_centerpoint_voxelnet_3x/latest.pth',
+        pretrained='/home/rajeev-gupta/sensyn_ws/src/GraphRCNN/work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze/latest.pth',
         reader=dict(
             type="DynamicVoxelEncoder",
             pc_range=[-75.2, -75.2, -2, 75.2, 75.2, 4],
@@ -255,6 +255,6 @@ device_ids = [0]
 dist_params = dict(backend="nccl", init_method="env://")
 log_level = "INFO"
 work_dir = './work_dirs/{}/'.format(__file__[__file__.rfind('/') + 1:-3])
-load_from = 'work_dirs/waymo_centerpoint_voxelnet_3x/latest.pth' 
+load_from = '/home/rajeev-gupta/sensyn_ws/src/GraphRCNN/work_dirs/waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze/latest.pth' 
 resume_from = None
 workflow = [('train', 1)]

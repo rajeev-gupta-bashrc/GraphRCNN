@@ -14,6 +14,8 @@ from torch.utils import model_zoo
 
 from .utils import get_dist_info
 
+from det3d.utils.checkpoint import load_state_dict as LSD
+
 open_mmlab_model_urls = {
     "vgg16_caffe": "https://s3.ap-northeast-2.amazonaws.com/open-mmlab/pretrain/third_party/vgg16_caffe-292e1171.pth",  # noqa: E501
     "resnet50_caffe": "https://s3.ap-northeast-2.amazonaws.com/open-mmlab/pretrain/third_party/resnet50_caffe-788b5fa3.pth",  # noqa: E501
@@ -72,6 +74,7 @@ def load_state_dict(module, state_dict, strict=False, logger=None):
     shape_mismatch_pairs = []
 
     own_state = module.state_dict()
+    # print("[In load_state] module.state_dict().keys()")
 
     spconv_keys = find_all_spconv_keys(module)
 
@@ -104,6 +107,15 @@ def load_state_dict(module, state_dict, strict=False, logger=None):
             continue
         own_state[name].copy_(param)
 
+    # removing single_det. prefix from keys of state_dict, they don't match with keys in model.state_dict()
+    # items_list = list(state_dict.items())
+    # state_dict.clear()
+    # for key, value in items_list:
+    #     if key[:11]=='single_det.':
+    #         key = key[11:]
+    #         state_dict[key]=value
+        
+        
     all_missing_keys = set(own_state.keys()) - set(state_dict.keys())
     # ignore "num_batches_tracked" of BN layers
     missing_keys = [key for key in all_missing_keys if "num_batches_tracked" not in key]
@@ -138,6 +150,7 @@ def load_state_dict(module, state_dict, strict=False, logger=None):
             print(err_msg)
 
 
+
 def load_url_dist(url):
     """ In distributed setting, this function only download checkpoint at
     local rank 0 """
@@ -165,6 +178,7 @@ def get_torchvision_models():
 
 
 def load_checkpoint(model, filename, map_location='cpu', strict=False, logger=None):
+    print("load_checkpoint")
     """Load checkpoint from a file or URI.
 
     Args:
@@ -214,7 +228,8 @@ def load_checkpoint(model, filename, map_location='cpu', strict=False, logger=No
     if hasattr(model, "module"):
         load_state_dict(model.module, state_dict, strict, logger)
     else:
-        load_state_dict(model, state_dict, strict, logger)
+        # load_state_dict(model, state_dict, strict, logger)
+        LSD(model, state_dict, logger)
     # print('model loaded with state dict, here are the keys() ', state_dict.keys())
     return checkpoint
 

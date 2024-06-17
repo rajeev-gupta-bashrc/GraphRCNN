@@ -15,11 +15,11 @@ from .registry import (
 
 def build(cfg, registry, default_args=None):
     if isinstance(cfg, list):
-        print('***************************model is sequential***************************')
+        print('\n***************************model is sequential***************************')
         modules = [build_from_cfg(cfg_, registry, default_args) for cfg_ in cfg]
         return nn.Sequential(*modules)
     else:
-        print('***************************model is build_from_cfg***************************')
+        print('\n***************************model is build_from_cfg***************************')
         return build_from_cfg(cfg, registry, default_args)
 
 def build_second_stage_module(cfg):
@@ -49,4 +49,7 @@ def build_loss(cfg):
 
 
 def build_detector(cfg, train_cfg=None, test_cfg=None):
+    print("\n\nExecuted build_detector")
+    print('[In build_detector]name of Registry ', DETECTORS.name)
+    print('[In build_detector]_module_dict ', DETECTORS.module_dict)
     return build(cfg, DETECTORS, dict(train_cfg=train_cfg, test_cfg=test_cfg))

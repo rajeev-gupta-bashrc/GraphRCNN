@@ -25,7 +25,13 @@ import pickle
 import time 
 
 def save_pred(pred, root):
-    with open(os.path.join(root, "prediction.pkl"), "wb") as f:
+    base = 'prediction'
+    suffix = 1
+    new_file = 'prediction.pkl'
+    while os.path.exists(os.path.join(root, new_file)):
+        new_file = f'{base}_{suffix}.pkl'
+        suffix += 1
+    with open(os.path.join(root, new_file), "wb") as f:
         pickle.dump(pred, f)
 
 
@@ -33,9 +39,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Train a detector")
     parser.add_argument("config", help="train config file path")
     parser.add_argument("--work_dir", required=True, help="the dir to save logs and models")
-    parser.add_argument(
-        "--checkpoint", help="the dir to checkpoint which the model read from"
-    )
+    # parser.add_argument(
+    #     "--checkpoint", help="the dir to checkpoint which the model read from"
+    # )
     parser.add_argument(
         "--txt_result",
         type=bool,
@@ -137,7 +143,8 @@ def main():
         prog_bar = torchie.ProgressBar(len(data_loader.dataset) // cfg.gpus)
 
     detections = {}
-    cpu_device = torch.device("cpu")
+    # _device = torch.device("cpu")
+    _device = torch.device("cuda:0")
 
     start = time.time()
 
@@ -168,7 +175,7 @@ def main():
                 if k not in [
                     "metadata",
                 ]:
-                    output[k] = v.to(cpu_device)
+                    output[k] = v.to(_device)
             detections.update(
                 {token: output,}
             )

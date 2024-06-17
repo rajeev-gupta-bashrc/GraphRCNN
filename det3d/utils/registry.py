@@ -7,6 +7,8 @@ class Registry(object):
     def __init__(self, name):
         self._name = name
         self._module_dict = dict()
+        print('[Initialized] name of Registry ', self._name)
+        print('[Initialized] len of _module_dict ', len(self._module_dict))
 
     def __repr__(self):
         format_str = self.__class__.__name__ + "(name={}, items={})".format(
@@ -34,6 +36,7 @@ class Registry(object):
             raise TypeError(
                 "module must be a class, but got {}".format(type(module_class))
             )
+        print('registration of classes: ', module_class.__name__)
         module_name = module_class.__name__
         if module_name in self._module_dict:
             raise KeyError(
@@ -55,11 +58,15 @@ def build_from_cfg(cfg, registry, default_args=None):
     Returns:
         obj: The constructed object.
     """
+    # print('name of Registry ', registry.name)
+    # print('_module_dict ', registry.module_dict)
+    
     assert isinstance(cfg, dict) and "type" in cfg
     assert isinstance(default_args, dict) or default_args is None
     args = cfg.copy()
     obj_type = args.pop("type")
     if torchie.is_str(obj_type):
+        print('obj_type is str: ', obj_type)
         obj_cls = registry.get(obj_type)
         if obj_cls is None:
             raise KeyError(
@@ -67,6 +74,7 @@ def build_from_cfg(cfg, registry, default_args=None):
             )
     elif inspect.isclass(obj_type):
         obj_cls = obj_type
+        print('obj_type is a class', type(obj_cls))
     else:
         raise TypeError(
             "type must be a str or valid type, but got {}".format(type(obj_type))
@@ -74,5 +82,5 @@ def build_from_cfg(cfg, registry, default_args=None):
     if default_args is not None:
         for name, value in default_args.items():
             args.setdefault(name, value)
-
+    print('[In build_from_cfg] building ', obj_cls)
     return obj_cls(**args)

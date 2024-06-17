@@ -6,7 +6,7 @@ from collections import OrderedDict
 from pathlib import Path
 
 import torch
-from tensorboardX import SummaryWriter
+# from tensorboardX import SummaryWriter
 
 
 def _flat_nested_json_dict(json_dict, flatted, sep=".", start=""):

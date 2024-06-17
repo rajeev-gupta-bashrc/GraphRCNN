@@ -331,6 +331,7 @@ class Trainer(object):
 
     def load_checkpoint(self, filename, map_location="cpu", strict=False):
         self.logger.info("load checkpoint from %s", filename)
+        print('[In Trainer] load_checkpoint')
         return load_checkpoint(self.model, filename, map_location, strict, self.logger)
 
     def save_checkpoint(

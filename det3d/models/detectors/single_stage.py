@@ -27,7 +27,7 @@ class SingleStageDetector(BaseDetector):
         self.bbox_head = builder.build_head(bbox_head)
         self.train_cfg = train_cfg
         self.test_cfg = test_cfg
-
+        # print('single_stage detector initialised from ', self.init_weights(pretrained=pretrained))
         self.init_weights(pretrained=pretrained)
 
     def init_weights(self, pretrained=None):
@@ -35,8 +35,10 @@ class SingleStageDetector(BaseDetector):
             return 
         try:
             load_checkpoint(self, pretrained, strict=False)
-            print("init weight from {}".format(pretrained))
-        except:
+            print("Init weight from {}".format(pretrained))
+            return pretrained
+        except Exception as e:
+            print(e)
             print("no pretrained model at {}".format(pretrained))
             
     def extract_feat(self, data):

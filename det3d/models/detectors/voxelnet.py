@@ -16,6 +16,7 @@ class VoxelNet(SingleStageDetector):
         test_cfg=None,
         pretrained=None,
     ):
+        print("Running super of VoxelNet (SingleStageDetector)")
         super(VoxelNet, self).__init__(
             reader, backbone, neck, bbox_head, train_cfg, test_cfg, pretrained
         )

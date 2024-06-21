@@ -39,9 +39,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Train a detector")
     parser.add_argument("config", help="train config file path")
     parser.add_argument("--work_dir", required=True, help="the dir to save logs and models")
-    # parser.add_argument(
-    #     "--checkpoint", help="the dir to checkpoint which the model read from"
-    # )
+    parser.add_argument(
+        "--checkpoint", help="the dir to checkpoint which the model read from"
+    )
     parser.add_argument(
         "--txt_result",
         type=bool,
@@ -119,7 +119,7 @@ def main():
         shuffle=True,
     )
 
-    # checkpoint = load_checkpoint(model, args.checkpoint, map_location="cpu")
+    checkpoint = load_checkpoint(model, args.checkpoint, map_location="cuda:0")
 
     # put model on gpus
     if distributed:

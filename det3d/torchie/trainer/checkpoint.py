@@ -228,8 +228,8 @@ def load_checkpoint(model, filename, map_location='cpu', strict=False, logger=No
     if hasattr(model, "module"):
         load_state_dict(model.module, state_dict, strict, logger)
     else:
-        # load_state_dict(model, state_dict, strict, logger)
-        LSD(model, state_dict, logger)
+        load_state_dict(model, state_dict, strict, logger)
+        # LSD(model, state_dict, logger)
     # print('model loaded with state dict, here are the keys() ', state_dict.keys())
     return checkpoint
 

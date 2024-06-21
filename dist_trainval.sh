@@ -14,4 +14,5 @@ CFG_NAME=waymo_centerpoint_voxelnet_graphrcnn_6epoch_freeze
 # python -m torch.distributed.launch --nproc_per_node=${NGPUS} ./tools/train.py  configs/waymo/voxelnet/two_stage/$CFG_NAME.py
 
 # python ./tools/dist_test.py configs/waymo/voxelnet/two_stage/$CFG_NAME.py --work_dir work_dirs/$CFG_NAME --checkpoint work_dirs/$CFG_NAME/latest.pth
-python ./tools/dist_test.py configs/waymo/voxelnet/two_stage/$CFG_NAME.py --work_dir work_dirs/$CFG_NAME
+python ./tools/dist_test.py configs/waymo/voxelnet/two_stage/$CFG_NAME.py --work_dir work_dirs/$CFG_NAME --checkpoint /home/rajeev-gupta/sensyn_ws/src/Honghui_weights/graphrcnn_epoch_6.pth
+# python ./tools/dist_test.py configs/waymo/voxelnet/two_stage/$CFG_NAME.py --work_dir work_dirs/$CFG_NAME

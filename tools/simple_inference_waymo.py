@@ -1,5 +1,7 @@
 # modified from the single_inference.py by @muzi2045
-from spconv.utils import VoxelGenerator as VoxelGenerator
+# from spconv.utils import VoxelGenerator as VoxelGenerator
+from det3d.core.input.voxel_generator import VoxelGenerator
+
 from det3d.datasets.pipelines.loading import read_single_waymo
 from det3d.datasets.pipelines.loading import get_obj
 from det3d.torchie.trainer import load_checkpoint

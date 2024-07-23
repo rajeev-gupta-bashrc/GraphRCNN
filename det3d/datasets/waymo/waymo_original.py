@@ -53,11 +53,10 @@ class WaymoDataset(PointCloudDataset):
         assert False 
 
     def load_infos(self, info_path):
-        if info_path == '':
-            self._waymo_infos = [{'path':'', 'token':''}]
-        else:
-            _waymo_infos_all = self.client.load_pickle(self._info_path)
-            self._waymo_infos = _waymo_infos_all[::self.load_interval]
+        _waymo_infos_all = self.client.load_pickle(self._info_path)
+
+        self._waymo_infos = _waymo_infos_all[::self.load_interval]
+
         print("Using {} Frames".format(len(self._waymo_infos)))
 
     def __len__(self):
@@ -67,13 +66,13 @@ class WaymoDataset(PointCloudDataset):
 
         return len(self._waymo_infos)
 
-    def get_sensor_data(self, idx, points=None):
+    def get_sensor_data(self, idx):
         info = self._waymo_infos[idx]
 
         res = {
             "lidar": {
                 "type": "lidar",
-                "points": points,
+                "points": None,
                 "annotations": None,
                 "nsweeps": self.nsweeps, 
             },
@@ -92,8 +91,8 @@ class WaymoDataset(PointCloudDataset):
 
         return data
 
-    def __getitem__(self, idx, points=None):
-        return self.get_sensor_data(idx, points)
+    def __getitem__(self, idx):
+        return self.get_sensor_data(idx)
 
     def evaluation(self, detections, output_dir=None, testset=False):
         from .waymo_common import _create_pd_detection, reorganize_info

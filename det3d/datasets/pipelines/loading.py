@@ -70,6 +70,7 @@ def read_sweep(sweep, client, virtual=False):
 
     return points_sweep.T, curr_times.T
 
+
 def read_single_waymo(obj):
     points_xyz = obj["lidars"]["points_xyz"]
     points_feature = obj["lidars"]["points_feature"]
@@ -152,6 +153,11 @@ class LoadPointCloudFromFile(object):
         
         elif self.type == "WaymoDataset":
             path = info['path']
+            try:
+                assert res["lidar"]["points"].shape[1] == 5
+                return res, info
+            except:
+                pass
             nsweeps = res["lidar"]["nsweeps"]
             obj = get_obj(path, self.client)
             points = read_single_waymo(obj)

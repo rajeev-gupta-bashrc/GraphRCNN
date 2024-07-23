@@ -230,7 +230,8 @@ def load_checkpoint(model, filename, map_location='cpu', strict=False, logger=No
     else:
         # load_state_dict(model, state_dict, strict, logger)
         LSD(model, state_dict, logger)
-    # print('model loaded with state dict, here are the keys() ', state_dict.keys())
+        print('model loaded using LSD')
+    print('model loaded with state dict')
     return checkpoint
 
 

@@ -2,7 +2,9 @@ import copy
 from pathlib import Path
 import pickle
 
-import fire, os
+import fire, os, sys
+pkg_path = '/media/rajeev-gupta/Drive250/SENSYN_/from_sensyn_ws_src/GraphRCNN'
+sys.path.insert(0, pkg_path)
 
 from det3d.datasets.nuscenes import nusc_common as nu_ds
 from det3d.datasets.utils.create_gt_database import create_groundtruth_database

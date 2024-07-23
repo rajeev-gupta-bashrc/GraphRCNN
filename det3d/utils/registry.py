@@ -7,8 +7,8 @@ class Registry(object):
     def __init__(self, name):
         self._name = name
         self._module_dict = dict()
-        print('[Initialized] name of Registry ', self._name)
-        print('[Initialized] len of _module_dict ', len(self._module_dict))
+        # print('[Initialized] name of Registry ', self._name)
+        # print('[Initialized] len of _module_dict ', len(self._module_dict))
 
     def __repr__(self):
         format_str = self.__class__.__name__ + "(name={}, items={})".format(
@@ -36,7 +36,6 @@ class Registry(object):
             raise TypeError(
                 "module must be a class, but got {}".format(type(module_class))
             )
-        print('registration of classes: ', module_class.__name__)
         module_name = module_class.__name__
         if module_name in self._module_dict:
             raise KeyError(

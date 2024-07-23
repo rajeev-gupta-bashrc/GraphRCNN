@@ -49,7 +49,7 @@ def build_loss(cfg):
 
 
 def build_detector(cfg, train_cfg=None, test_cfg=None):
-    print("\n\nExecuted build_detector")
-    print('[In build_detector]name of Registry ', DETECTORS.name)
-    print('[In build_detector]_module_dict ', DETECTORS.module_dict)
+    # print("\n\nExecuted build_detector")
+    # print('[In build_detector]name of Registry ', DETECTORS.name)
+    # print('[In build_detector]_module_dict ', DETECTORS.module_dict)
     return build(cfg, DETECTORS, dict(train_cfg=train_cfg, test_cfg=test_cfg))

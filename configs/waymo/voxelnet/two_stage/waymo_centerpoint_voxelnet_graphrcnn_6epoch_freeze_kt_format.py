@@ -23,7 +23,7 @@ model = dict(
         pretrained='/media/rajeev-gupta/Drive250/SENSYN_/from_sensyn_ws_src/Honghui_weights/centerpoint_epoch_36.pth',
         reader=dict(
             type="DynamicVoxelEncoder",
-            pc_range=[-75.2, -75.2, -2, 75.2, 75.2, 4],
+            pc_range=[0, -75.2, -2, 150.4, 75.2, 4],
             voxel_size=[0.1, 0.1, 0.15]
         ),
         backbone=dict(
@@ -90,7 +90,7 @@ model = dict(
             )
         ),
         code_size=7,
-        pc_range=[-75.2, -75.2, -2, 75.2, 75.2, 4]
+        pc_range=[0, -75.2, -2, 150.4, 75.2, 4]
     ),
     NMS_POST_MAXSIZE=500,
     freeze=True
@@ -140,6 +140,7 @@ client_cfg = dict(
 db_sampler = dict(
     type="GT-AUG",
     enable=False,
+    # db_info_path='',
     db_info_path=data_root + "/dbinfos_train_1sweeps_withvelo.pkl",
     client_cfg=client_cfg,
     sample_groups=[
@@ -192,6 +193,8 @@ test_pipeline = [
 
 train_anno = data_root + "/infos_train_01sweeps_filter_zero_gt.pkl"
 val_anno = data_root + "/infos_val_01sweeps_filter_zero_gt.pkl"
+# train_anno = ''
+# val_anno = ''
 test_anno = None
 
 data = dict(

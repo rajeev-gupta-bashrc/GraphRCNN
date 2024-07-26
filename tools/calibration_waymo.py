@@ -30,9 +30,37 @@ def intrinsic_from_waymo_data(intrinsic_waymo):
     P[1, 2] = cy
     return P[:3, :]                         #(3, 4)
 
-def get_calib_from_file(calib_file, client=None):
+# def get_calib_from_file(calib_file, client=None):
+#     lines = open(calib_file).readlines()
+#     calib_dict = {}
+#     for line in lines:
+#         obj = line.strip().split(' ')
+#         if obj[0][0]=='P':
+#             intrinsic_waymo = np.array(obj[1:], dtype=np.float32)
+#             # print('******************* waymo intrinsic ', intrinsic_waymo)
+#             P = intrinsic_from_waymo_data(intrinsic_waymo)
+#             calib_dict[obj[0][:2]] = P
+#         elif obj[0][0]=='T':
+#             Tr_velo_to_cam = np.array(obj[1:], dtype=np.float32).reshape(3, 4)
+#             # # inverse
+#             # Tr_velo_to_cam = get_inverse_in_same_shape(Tr_velo_to_cam)
+#         elif obj[0][0]=='R':
+#             R0 = np.array(obj[1:], dtype=np.float32).reshape(3, 3)
+#     calib_dict['R0'] = R0
+#     calib_dict['Tr_velo2cam'] = Tr_velo_to_cam
+#     # rotating default frame to camera frame
+#     rotation_z = R.from_euler('z', -90, degrees=True).as_matrix()
+#     rotation_x = R.from_euler('x', -90, degrees=True).as_matrix()
+#     RTN = rotation_z @ rotation_x
+#     calib_dict['Tr_velo2cam'][:3, :3] = RTN
+#     calib_dict['Tr_velo2cam'] = get_inverse_in_same_shape(calib_dict['Tr_velo2cam'])
+#     # print(calib_dict)
+#     return calib_dict
+
+def get_calib_from_file(calib_file):
     lines = open(calib_file).readlines()
     calib_dict = {}
+    
     for line in lines:
         obj = line.strip().split(' ')
         if obj[0][0]=='P':
@@ -42,19 +70,17 @@ def get_calib_from_file(calib_file, client=None):
             calib_dict[obj[0][:2]] = P
         elif obj[0][0]=='T':
             Tr_velo_to_cam = np.array(obj[1:], dtype=np.float32).reshape(3, 4)
-            # # inverse
-            # Tr_velo_to_cam = get_inverse_in_same_shape(Tr_velo_to_cam)
+            # rotating default frame to camera frame
+            rotation_z = R.from_euler('z', -90, degrees=True).as_matrix()
+            rotation_x = R.from_euler('x', -90, degrees=True).as_matrix()
+            RTN = rotation_z @ rotation_x
+            Tr_velo_to_cam[:3, :3] = RTN
+            Tr_velo_to_cam = get_inverse_in_same_shape(Tr_velo_to_cam)
+            calib_dict[obj[0][:-1]] = Tr_velo_to_cam
         elif obj[0][0]=='R':
             R0 = np.array(obj[1:], dtype=np.float32).reshape(3, 3)
-    calib_dict['R0'] = R0
-    calib_dict['Tr_velo2cam'] = Tr_velo_to_cam
-    # rotating default frame to camera frame
-    rotation_z = R.from_euler('z', -90, degrees=True).as_matrix()
-    rotation_x = R.from_euler('x', -90, degrees=True).as_matrix()
-    RTN = rotation_z @ rotation_x
-    calib_dict['Tr_velo2cam'][:3, :3] = RTN
-    calib_dict['Tr_velo2cam'] = get_inverse_in_same_shape(calib_dict['Tr_velo2cam'])
-    # print(calib_dict)
+            calib_dict['R0'] = R0
+    print(calib_dict)
     return calib_dict
 
 
@@ -67,7 +93,7 @@ class Calibration(object):
 
         self.P2 = calib['P0']  # 3 x 4
         self.R0 = calib['R0']  # 3 x 3
-        self.V2C = calib['Tr_velo2cam']  # 3 x 4
+        self.V2C = calib['Tr_velo_to_cam0']  # 3 x 4
 
         # Camera intrinsics and extrinsics
         self.cu = self.P2[0, 2]

@@ -94,3 +94,31 @@ This project is mainly based on the following codebases. Thanks for their great 
 * [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)
 * [CenterPoint](https://github.com/tianweiy/CenterPoint)
 * [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
+
+
+## Add-ons:
+
+dist_trainval.sh: configured for training/testing on single GPU.
+
+testing_new_final.ipynb: configured for testing and results visualisation GraphCE on waymo dataset converted to kitti dataset format. 
+
+tools/waymo_to_kitti_create_data.ipynb: conversion from waymo tfrecords to kitti dataset format.
+
+Directory structure:
+
+```
+├── kitti
+    ├── testing
+        ├── calib
+            ├── 000000.txt 
+            ├── ...
+        ├── image
+            ├── 000000.png 
+            ├── ...
+        ├── velodyne
+            ├── 000000.bin 
+            ├── ...
+    ├── training
+        ├── same as testing ...
+```
+
